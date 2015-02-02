@@ -1,0 +1,17 @@
+<html>
+    <body>
+        <h3>Congratulations! You received an email from auto generated app</h3>
+        <h3>
+            Name
+        </h3>
+        <p>
+            ${name}
+        </p>
+        <h3>
+            With key
+        </h3>
+        <p>
+            ${key}
+        </p>
+    </body>
+</html>

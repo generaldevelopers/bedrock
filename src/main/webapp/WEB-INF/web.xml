@@ -1,0 +1,158 @@
+<!--
+  ~ Copyright 2015 General Developers. www.gendevs.com
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+	<display-name>Bedrock Core server framework</display-name>
+		
+ <!--    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/applicationContext.xml</param-value>
+    </context-param>
+     -->
+	<servlet>
+		<servlet-name>JerseyJaxrsConfig</servlet-name>
+		<servlet-class>com.wordnik.swagger.jersey.config.JerseyJaxrsConfig</servlet-class>
+		<init-param>
+			<param-name>api.version</param-name>
+			<param-value>1.0.0</param-value>
+		</init-param>
+		<init-param>
+			<param-name>swagger.api.basepath</param-name>
+			<param-value>http://localhost:8080/rest</param-value>
+		</init-param>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+
+	<servlet>
+		<servlet-name>jersey-serlvet</servlet-name>
+		<servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
+		<init-param>
+			<param-name>com.sun.jersey.config.property.packages</param-name>
+			<param-value>com.gendevs.bedrock.appengine.service;com.wordnik.swagger.jersey.listing</param-value>
+		</init-param>
+		<init-param>
+			<param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>jersey-serlvet</servlet-name>
+		<url-pattern>/rest/*</url-pattern>
+	</servlet-mapping>
+
+	<!-- ErrorHandler servlet -->
+	<servlet>
+	    <servlet-name>ErrorHandler</servlet-name>
+	    <servlet-class>com.gendevs.bedrock.appengine.filter.ErrorHandler</servlet-class>
+	</servlet>
+	<!-- ErrorHandler -->
+	<servlet-mapping>
+	    <servlet-name>ErrorHandler</servlet-name>
+	    <url-pattern>/ErrorHandler</url-pattern>
+	</servlet-mapping>
+	
+	<!-- error-code related error pages -->
+	<error-page>
+	    <error-code>404</error-code>
+	    <location>/ErrorHandler</location>
+	</error-page>
+	<error-page>
+	    <error-code>403</error-code>
+	    <location>/ErrorHandler</location>
+	</error-page>	
+	<error-page>
+	    <error-code>503</error-code>
+	    <location>/ErrorHandler</location>
+	</error-page>	
+	<!-- exception-type related error pages -->
+	<error-page>
+	    <exception-type>
+	        javax.servlet.ServletException
+	    </exception-type>
+	    <location>/ErrorHandler</location>
+	</error-page>
+	
+	<error-page>
+	    <exception-type>java.io.IOException</exception-type>
+	    <location>/ErrorHandler</location>
+	</error-page>
+	
+	<!-- for generic error handler 
+	<error-page>
+	    <exception-type>java.lang.Throwable</exception-type>
+	    <location>/ErrorHandler</location>
+	</error-page> -->
+	
+	<session-config>
+		<session-timeout>
+			30
+		</session-timeout>
+	</session-config>
+
+	<filter>
+		<filter-name>AuthFilter</filter-name>
+		<filter-class>com.gendevs.bedrock.appengine.filter.AuthFilter</filter-class>
+		<init-param>
+			<param-name>logType</param-name>
+			<param-value>special</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>AuthFilter</filter-name>
+		<url-pattern>/rest/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>AuthFilter</filter-name>
+		<servlet-name>Jersey Web Application</servlet-name>
+	</filter-mapping>
+
+	<filter>
+		<filter-name>LogFilter</filter-name>
+		<filter-class>com.gendevs.bedrock.appengine.filter.LogFilter</filter-class>
+		<init-param>
+			<param-name>logType</param-name>
+			<param-value>special</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>LogFilter</filter-name>
+		<url-pattern>/rest/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>LogFilter</filter-name>
+		<servlet-name>Jersey Web Application</servlet-name>
+	</filter-mapping>
+
+	<filter>
+		<filter-name>ObjectifyFilter</filter-name>
+		<filter-class>com.googlecode.objectify.ObjectifyFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>ObjectifyFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+</web-app>

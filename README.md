@@ -1,2 +1,4 @@
-# bedrock
-Core Foundational Java frameworks for backend systems
+## bedrock-appengine
+
+Core foundational server framework customized for appengine
+
