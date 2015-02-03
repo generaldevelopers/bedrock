@@ -2,10 +2,10 @@
   <artifact type="war" name="Bedrock:Web exploded">
     <output-path>$PROJECT_DIR$/out/artifacts/Bedrock_Web_exploded</output-path>
     <root id="archive" name="Bedrock_Web exploded.war">
-      <element id="javaee-facet-resources" facet="Bedrock/web/Web" />
+      <element id="javaee-facet-resources" facet="bedrock-appengine/web/Web" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="Bedrock" />
+          <element id="module-output" name="bedrock-appengine" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="com.google.appengine:appengine-tools-sdk:1.9.12" />

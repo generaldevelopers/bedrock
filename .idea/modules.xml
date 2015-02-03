@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Bedrock.iml" filepath="$PROJECT_DIR$/Bedrock.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bedrock-appengine.iml" filepath="$PROJECT_DIR$/bedrock-appengine.iml" />
     </modules>
   </component>
 </project>

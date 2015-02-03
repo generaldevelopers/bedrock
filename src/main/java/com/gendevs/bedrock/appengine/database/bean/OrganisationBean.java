@@ -91,8 +91,6 @@ public class OrganisationBean {
 		bean.phone = model.phone;
 		bean.country = model.country;
 		
-		//bean.userBeans = UserBean.getBeans(Organisation.getUsers(model.id));
-		
 		bean.userCount = Organisation.getUserCount(model.id);
 
 		bean.subscription = model.subscription;

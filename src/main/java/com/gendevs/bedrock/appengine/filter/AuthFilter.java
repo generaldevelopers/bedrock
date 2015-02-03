@@ -47,83 +47,49 @@ public class AuthFilter implements Filter {
 		httpResponse.setHeader("Access-Control-Allow-Headers",
 				"Origin, X-Requested-With, Content-Type, Accept, access_token");
 
-		String accessToken = getAccessToken(httpRequest);
-		//String userId = getUserId(getAccessToken(httpRequest));
-		//request.setAttribute(AppConstants.USER_ID_KEY, userId);
+        String accessToken = getAccessToken(httpRequest);
+        //String userId = getUserId(getAccessToken(httpRequest));
+        //request.setAttribute(AppConstants.USER_ID_KEY, userId);
 
-		if(httpRequest.getRequestURI().startsWith("/rest/api-docs")){
-			GDLogger.logWarning("AuthFilter", "API docs URL so performing request");
-			filterChain.doFilter(request, response);
-			return;
-		}else if (isExemptedUrl(httpRequest)) {
-			GDLogger.logWarning("AuthFilter", "Exempted URL so performing request");
-			filterChain.doFilter(request, response);
-			return;
-		} else if (httpRequest.getParameter("api_key") != null) {
-			//from swagger
-			String apiKey = httpRequest.getParameter("api_key");
-			String userId = getDummyUserId(apiKey);
-			//String username = java.net.URLDecoder.decode(swaggerKey, "UTF-8");
-			
-			if(userId!=null){
-				request.setAttribute(AppConstants.USER_ID_KEY, userId);
+        if(httpRequest.getRequestURI().startsWith("/rest/api-docs")){
+            GDLogger.logWarning("AuthFilter", "API docs URL so performing request");
+            filterChain.doFilter(request, response);
+            return;
+        }else if (isExemptedUrl(httpRequest)) {
+            GDLogger.logWarning("AuthFilter", "Exempted URL so performing request");
+            filterChain.doFilter(request, response);
+            return;
+        } else if (httpRequest.getParameter("api_key") != null) {
+            //from swagger
+            if(httpRequest.getParameter("api_key").equals(AppConstants.API_KEY_SWAGGER)){
+                GDLogger.logWarning("AuthFilter", "From Swagger documentation. Perform request");
+                filterChain.doFilter(request, response);
+            } else {
+                GDLogger.logWarning("AuthFilter", "Not a valid swagger API key");
+                getAccessDeniedResponse(httpResponse, "Not a valid swagger API key", Status.UNAUTHORIZED.getStatusCode(),
+                        response.getWriter());
+            }
+            return;
+        } else if (accessToken == null) {
+            GDLogger.logWarning("AuthFilter", "Access token not specified in header");
+            getAccessDeniedResponse(httpResponse, "Access token not specified in header", Status.UNAUTHORIZED.getStatusCode(),
+                    response.getWriter());
+            return;
+        } else if (!validateAccessToken(accessToken)) {
+            GDLogger.logWarning("AuthFilter", "Not a valid access token");
+            getAccessDeniedResponse(httpResponse, "Not a valid access token", Status.UNAUTHORIZED.getStatusCode(),
+                    response.getWriter());
+            return;
+        }
 
-				GDLogger.logWarning("AuthFilter", "From Swagger documentation. Perform request");
-				filterChain.doFilter(request, response);
-			} else {
-				GDLogger.logWarning("AuthFilter", "Not a valid swagger API key");
-				getAccessDeniedResponse(httpResponse, "Not a valid swagger API key", Status.UNAUTHORIZED.getStatusCode(),
-						response.getWriter());
-			}
-			return;
-		} else if (accessToken == null) {
-			GDLogger.logWarning("AuthFilter", "Access token not specified in header");
-			getAccessDeniedResponse(httpResponse, "Access token not specified in header", Status.UNAUTHORIZED.getStatusCode(),
-					response.getWriter());
-			return;
-		} else if (!validateAccessToken(accessToken)) {
-			GDLogger.logWarning("AuthFilter", "Not a valid access token");
-			getAccessDeniedResponse(httpResponse, "Not a valid access token", Status.UNAUTHORIZED.getStatusCode(),
-					response.getWriter());
-			return;
-		}
-		
-		String userId = getUserId(getAccessToken(httpRequest));
-		request.setAttribute(AppConstants.USER_ID_KEY, userId);
-		
-		String organisationId = RepositoryFactory.getInstance().getUserRepository().findOne(userId).organisationId;
-		request.setAttribute(AppConstants.ORGANISATION_ID_KEY, organisationId);
-		
-		//TimeZone savedZone = TimeZone.getDefault();
-		//TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
-		
-		filterChain.doFilter(request, response);
-	   
-		//TimeZone.setDefault(savedZone);
+        String userId = getUserId(getAccessToken(httpRequest));
+        request.setAttribute(AppConstants.USER_ID_KEY, userId);
 
+        filterChain.doFilter(request, response);
 
 		return;
 	}
 
-	private String getDummyUserId(String apiKey){
-		String username;
-		switch(apiKey){
-			case "yellowbuffalo_super_admin":
-				username = "super@gmail.com";
-				break;
-			case "yellowbuffalo_admin":
-				username = "nickle@gmail.com";
-				break;
-			case "yellowbuffalo_user":
-				username = "vinodh@gmail.com";
-				break;
-			default :
-				return null;
-				
-		}
-		return RepositoryFactory.getInstance().getUserRepository().findByUsername(username).id;
-	}
-	
 	private void getAccessDeniedResponse(HttpServletResponse httpResponse, String message, int statusCode, PrintWriter printWriter) {
 		printWriter.println(CommonJsonBuilder.getJsonForEntity(new ServerResponse<Object>(false, message, statusCode,
                 null)));
@@ -147,7 +113,6 @@ public class AuthFilter implements Filter {
                 getExemptedList.add("/rest/test/appengine");
                 getExemptedList.add("/rest/forgot-password/request");
 				getExemptedList.add("/rest/forgot-password/verify");
-				getExemptedList.add("/rest/apps/can-create");
 
 			for (String string : getExemptedList) {
 				if (string.equalsIgnoreCase(requestCasted.getRequestURI()))
@@ -160,14 +125,6 @@ public class AuthFilter implements Filter {
 				postExemptedList.add("/rest/organisations/sign-up");
 				postExemptedList.add("/rest/users/sign-up");
 				postExemptedList.add("/rest/forgot-password/reset");
-				postExemptedList.add("/rest/crashes");
-				postExemptedList.add("/rest/crash-infos");
-				//postExemptedList.add("/rest/crash-infos/{id}/stack-trace");
-
-				postExemptedList.add("/rest/images");
-				postExemptedList.add("/rest/videos");
-				postExemptedList.add("/rest/logs");
-				postExemptedList.add("/rest/apps/validate");
 				
 			for (String string : postExemptedList) {
 				if (string.equalsIgnoreCase(requestCasted.getRequestURI()))

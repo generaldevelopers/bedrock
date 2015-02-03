@@ -3,6 +3,17 @@
     <output-path>$PROJECT_DIR$/target</output-path>
     <root id="archive" name="bedrock-core-0.0.2-SNAPSHOT.war">
       <element id="artifact" artifact-name="Bedrock:war exploded" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="com.google.appengine:appengine-tools-sdk:1.9.12" />
+          <element id="library" level="project" name="com.google.appengine:appengine-api-labs:1.9.12" />
+          <element id="library" level="project" name="com.google.appengine:appengine-api-1.0-sdk:1.9.12" />
+          <element id="library" level="project" name="com.google.appengine:appengine-testing:1.9.12" />
+          <element id="library" level="project" name="com.google.appengine:appengine-endpoints-deps:1.9.2" />
+          <element id="library" level="project" name="com.google.appengine:appengine-endpoints-deps:1.9.21" />
+          <element id="library" level="project" name="com.google.appengine:appengine-jsr107cache:1.9.2" />
+        </element>
+      </element>
     </root>
   </artifact>
 </component>
