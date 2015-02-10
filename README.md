@@ -1,4 +1,4 @@
-## bedrock-appengine
+## Bedrock
 
 Core foundational server framework customized for backend systems
 
