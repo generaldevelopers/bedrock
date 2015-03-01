@@ -26,4 +26,16 @@ This repository uses below libraries
 * Amazon AWS Java SDK - for uploading images to S3
 * Test NG - For tests framework
 
+
+Explanation of the structure of the code
+
+database - Code related to database, models, beans and DAO's
+filter - Code related to web app filters, like logfilter, authorization filters etc.
+Mail - Code to send emails with templating.
+json - Code to convert to and fro of object and JSON objects.
+repository - MongoDB data repositories
+response  - Response objects
+service - Restful web services to serve data.
+utils - Utilities like data enctyption,  unique ID generation etc.
+
 Full documentation is found at http://generaldevelopers.github.io/bedrock
