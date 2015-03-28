@@ -19,7 +19,7 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-	<display-name>Bedrock Core server framework</display-name>
+	<display-name>Bedrock Core foundational server framework</display-name>
 		
  <!--    <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
