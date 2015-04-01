@@ -16,7 +16,6 @@
 
 package com.gendevs.bedrock.appengine.utils;
 
-
 import com.gendevs.bedrock.appengine.service.storage.StorageConstants;
 
 public class AppConstants {

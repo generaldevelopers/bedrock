@@ -41,6 +41,7 @@ public class GDJsonBuilder {
 		try {
 			return getGson().toJson(entity);
 		} catch (Exception e) {
+			
 		}
 		return null;
 	}
