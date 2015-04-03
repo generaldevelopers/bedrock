@@ -24,7 +24,8 @@ import java.util.Map;
 public class DummyData {
 
 	public boolean createDummyData() throws IOException, InterruptedException, ParseException  {
-
+		//write DB code to create dummy data
+		//You can write inserting using DAOs
 		return true;
 	}
 }
