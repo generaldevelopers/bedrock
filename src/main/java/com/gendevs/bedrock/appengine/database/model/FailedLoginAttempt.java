@@ -28,6 +28,7 @@ public class FailedLoginAttempt {
 
     @Id
     public String username;
+
     public Date timeEntered;
     public int numberOfTimes;
 	
@@ -50,7 +51,6 @@ public class FailedLoginAttempt {
 	public boolean incrementFailedAttempt(String username){
 		
 		FailedLoginAttempt  fla = RepositoryFactory.getInstance().getFailedLoginAttemptRepository().findByUsername(username);
-
 		if(fla == null){
 			fla = new FailedLoginAttempt();
 			fla.timeEntered = new Date();
@@ -58,8 +58,7 @@ public class FailedLoginAttempt {
 		}
 		
 		fla.numberOfTimes++;
-		RepositoryFactory.getInstance().getFailedLoginAttemptRepository().save(fla);
-		
+		RepositoryFactory.getInstance().getFailedLoginAttemptRepository().save(fla);	
 		return true;
 	}
 
