@@ -33,9 +33,7 @@ public class Token {
 	public String userId;
 	public Date validTill;
 	public String type;
-
 	public String password;
-
 	public boolean isBlocked;
 	public boolean isDeleted;
 
@@ -56,10 +54,7 @@ public class Token {
 				.findByTokenAndType(accessToken, tokenType);
 
 		if (fetchedToken != null && fetchedToken.isBlocked == false
-				&& fetchedToken.validTill.compareTo(currentTime) > 0)// validTillDate
-																		// is
-																		// after
-																		// currentTime
+				&& fetchedToken.validTill.compareTo(currentTime) > 0)// validTillDate is after currentTime
 			return fetchedToken.userId;
 		else
 			return null;
