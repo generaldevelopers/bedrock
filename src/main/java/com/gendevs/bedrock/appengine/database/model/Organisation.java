@@ -31,20 +31,19 @@ public class Organisation {
 	public String id;
 	@Indexed
 	public String name;
+
 	public int status; // see OrganisationStatusType
 	public String DBAName;
 	public String icon;
 	public String email;
 	public String phone;
     public String country;
-    
     public String subscription; //see SubscriptionType
-    
-	public boolean isDeleted;
-
 	public String imageUrl;
 	public String imageUrlLogo;
 	
+	public boolean isDeleted;
+
 	public static List<User> getUsers(String organisationId) {
 		return RepositoryFactory.getInstance().getUserRepository().findByOrganisationIdAndIsDeleted(organisationId, false);
 	}
@@ -52,5 +51,4 @@ public class Organisation {
 	public static int getUserCount(String organisationId) {
 		return getUsers(organisationId).size();
 	}
-
 }
