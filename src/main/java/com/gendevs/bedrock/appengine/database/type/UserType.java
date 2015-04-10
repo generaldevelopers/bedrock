@@ -19,5 +19,4 @@ package com.gendevs.bedrock.appengine.database.type;
 public class UserType {
 	public static final String ACTIVE = "ACTIVE";
 	public static final String INACTIVE = "INACTIVE";
-
 }

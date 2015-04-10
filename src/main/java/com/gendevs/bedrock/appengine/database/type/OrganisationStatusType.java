@@ -20,5 +20,4 @@ public class OrganisationStatusType {
 	public static final int OK = 1;
 	public static final int LOCKED = 2;
 	public static final int BLOCKED = 3;
-
 }
