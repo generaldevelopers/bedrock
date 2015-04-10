@@ -40,9 +40,7 @@ public class User
     public String phone;
     public String designation;
     public String subscription; //see SubscriptionType
-
     public String role;
-    
     public String type;
     public Date validTill;
     
@@ -89,8 +87,8 @@ public class User
 		
 		if(owner.role.equalsIgnoreCase(UserRoleType.ADMIN) && user.role.equalsIgnoreCase(UserRoleType.USER) && user.organisationId.equals(owner.organisationId))
 			return true;
+		
 		return false;
-
 	}
 
 }
