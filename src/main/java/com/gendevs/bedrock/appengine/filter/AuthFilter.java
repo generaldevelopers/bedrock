@@ -86,7 +86,6 @@ public class AuthFilter implements Filter {
         request.setAttribute(AppConstants.USER_ID_KEY, userId);
 
         filterChain.doFilter(request, response);
-
 		return;
 	}
 
@@ -94,12 +93,9 @@ public class AuthFilter implements Filter {
 		printWriter.println(CommonJsonBuilder.getJsonForEntity(new ServerResponse<Object>(false, message, statusCode,
                 null)));
 		printWriter.close();
-		
 	}
 
 	private boolean isExemptedUrl(HttpServletRequest requestCasted) {
-
-
 		List<String> postExemptedList = new ArrayList<String>();
 		List<String> getExemptedList = new ArrayList<String>();
 		
@@ -114,10 +110,10 @@ public class AuthFilter implements Filter {
                 getExemptedList.add("/rest/forgot-password/request");
 				getExemptedList.add("/rest/forgot-password/verify");
 
-			for (String string : getExemptedList) {
-				if (string.equalsIgnoreCase(requestCasted.getRequestURI()))
-					return true;
-			}
+				for (String string : getExemptedList) {
+					if (string.equalsIgnoreCase(requestCasted.getRequestURI()))
+						return true;
+				}
 			break;
 			
 			case "POST" :
@@ -153,8 +149,7 @@ public class AuthFilter implements Filter {
 	}
 
 	public void destroy() {
-		// TODO Auto-generated method stub
-
+		//dummy code 
 	}
 
 }
