@@ -48,8 +48,7 @@ public class LogFilter implements Filter{
 	}
 	
 	public void destroy() {
-		// TODO Auto-generated method stub
-		
+		//System generated method
 	}
 
 }
