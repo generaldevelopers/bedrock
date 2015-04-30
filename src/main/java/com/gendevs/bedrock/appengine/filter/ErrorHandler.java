@@ -25,7 +25,6 @@ import java.io.PrintWriter;
 
 public class ErrorHandler extends HttpServlet{
 
-	//Method to handle GET method request
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		//Analyze the servlet exception
@@ -75,7 +74,6 @@ public class ErrorHandler extends HttpServlet{
 		out.println("</html>");
 	}
 	
-	//Method to handle POST method request.
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
