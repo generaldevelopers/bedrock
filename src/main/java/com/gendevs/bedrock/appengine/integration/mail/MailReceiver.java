@@ -17,12 +17,14 @@
 package com.gendevs.bedrock.appengine.integration.mail;
 
 public class MailReceiver {
+	
 	public MailReceiver(String firstName, String lastName, String email, String imageUrl) {
 		this.email = email;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.imageUrl = imageUrl;
 	}
+	
 	public String email;
 	public String firstName;
 	public String lastName;

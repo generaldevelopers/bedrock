@@ -39,7 +39,6 @@ public class MailHelper {
 		
 		mail.setSubject("New App created");
 		mail.setTemplateName("app_created.html");
-		
 		mail.setFrom(AppConstants.APP_EMAILID);
 		
 		sendEmailInBackground(mail, model);
