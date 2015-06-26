@@ -80,7 +80,6 @@ public class BaseImageService {
 		switch (type) {
 		
 			case USER_IMAGE_TYPE : 
-
 				User user = RepositoryFactory.getInstance().getUserRepository().findOne(id);
 				if (user.imageUrl == null)
 					return Response.status(Status.UNAUTHORIZED)
@@ -91,8 +90,7 @@ public class BaseImageService {
 					user.imageUrl = null;
 					RepositoryFactory.getInstance().getUserRepository().save(user);
 					return Response.status(Status.OK).entity(new ResponseMessage("Successfully Deleted!")).build();
-				}
-			
+				}	
 		}
 		return Response.status(Status.OK).entity(new ResponseMessage("Not Deleted!")).build();
 	}

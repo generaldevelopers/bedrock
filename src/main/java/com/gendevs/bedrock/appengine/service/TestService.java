@@ -55,6 +55,7 @@ public class TestService extends BaseService{
     @GET
 	@Path("/appengine")
 	public Response testAppEngine(){
+		//This is a test code to do a CRUD operations. 
 		Account account = new Account();
 		account.name = "acc name";
         account.id = String.valueOf(new Date().getTime());
