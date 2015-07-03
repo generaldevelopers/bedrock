@@ -89,8 +89,8 @@ public class UserService extends BaseService {
 	@Path("/sign-up")
 	@ApiOperation(value = "SignUp New User", notes = "Creates a user and displays its contents", response = ServerResponse.class)
 	@ApiResponses({ @ApiResponse(code = 400, message = "User Exists with username"),
-		@ApiResponse(code = 400, message = "Invalid Username"),
-			@ApiResponse(code = 201, message = "CREATED") })
+	@ApiResponse(code = 400, message = "Invalid Username"),
+	@ApiResponse(code = 201, message = "CREATED") })
 	public Response createNewUserSignUp(@ApiParam(value = "User details needed to create a new user", required = true) UserBean bean) {
 
 		if (bean == null)
@@ -228,6 +228,5 @@ public class UserService extends BaseService {
 		RepositoryFactory.getInstance().getUserRepository().save(user);
 
 		return Response.status(Status.OK).entity(new ResponseMessage("Successfully Deleted!")).build();
-
 	}
 }
