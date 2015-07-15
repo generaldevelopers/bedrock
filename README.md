@@ -8,3 +8,8 @@ This project can be run in a web application container such as Tomcat(Tested), J
 
 Another parallel Google Appengine's version of web application is available in our repository. It is strongly coupled with Appengine's cloud services
 
+This repository uses below libraries
+
+* Apache commons fraemwork - For basic file operations
+* Joda time - For time based calculations
+* Java Mail - For sending emails
