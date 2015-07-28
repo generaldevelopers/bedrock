@@ -13,3 +13,8 @@ This repository uses below libraries
 * Apache commons fraemwork - For basic file operations
 * Joda time - For time based calculations
 * Java Mail - For sending emails
+* Apache Velocity - For templating the emails
+* Junit - for unit and integration testing
+* Spring framework - for Core spring features
+* Spring Mongo Data framework - for Mongodb DB writes.
+* Spring Data - for ORM on mongo DB and repositories.
