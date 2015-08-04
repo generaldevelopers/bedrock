@@ -18,3 +18,7 @@ This repository uses below libraries
 * Spring framework - for Core spring features
 * Spring Mongo Data framework - for Mongodb DB writes.
 * Spring Data - for ORM on mongo DB and repositories.
+* Mongo DB driver - Driver for mongo DB database. 
+* Jersey - for Restful web services endpoints.
+* Google's Gson - for object to Json and viceversa conversion.
+* Java Servlet - for containerization of web service requests
