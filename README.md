@@ -22,3 +22,6 @@ This repository uses below libraries
 * Jersey - for Restful web services endpoints.
 * Google's Gson - for object to Json and viceversa conversion.
 * Java Servlet - for containerization of web service requests
+* Swagger - for web services documentation
+* Amazon AWS Java SDK - for uploading images to S3
+* Test NG - For tests framework
