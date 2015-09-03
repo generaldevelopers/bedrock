@@ -25,3 +25,5 @@ This repository uses below libraries
 * Swagger - for web services documentation
 * Amazon AWS Java SDK - for uploading images to S3
 * Test NG - For tests framework
+
+Full documentation is found at http://generaldevelopers.github.io/bedrock
