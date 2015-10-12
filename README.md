@@ -8,7 +8,7 @@ This project can be run in a web application container such as Tomcat(Tested), J
 
 Another parallel Google Appengine's version of web application is available in our repository. It is strongly coupled with Appengine's cloud services
 
-This repository uses below libraries
+## This repository uses below libraries
 
 * Apache commons fraemwork - For basic file operations
 * Joda time - For time based calculations
@@ -27,7 +27,7 @@ This repository uses below libraries
 * Test NG - For tests framework
 
 
-Explanation of the structure of the code
+## Explanation of the structure of the code
 
 database - Code related to database, models, beans and DAO's
 filter - Code related to web app filters, like logfilter, authorization filters etc.
@@ -37,5 +37,12 @@ repository - MongoDB data repositories
 response  - Response objects
 service - Restful web services to serve data.
 utils - Utilities like data enctyption,  unique ID generation etc.
+
+## How to run
+1. Import the project into IntelliJ Idea.
+2. Let the maven files be downloaded
+3. Create a run configuration with tomcat as server
+4. Run the project. 
+5. Open in browser for default port 8888.
 
 Full documentation is found at http://generaldevelopers.github.io/bedrock
