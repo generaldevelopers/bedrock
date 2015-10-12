@@ -27,16 +27,18 @@ Another parallel Google Appengine's version of web application is available in o
 * Test NG - For tests framework
 
 
-## Explanation of the structure of the code
+## Explanation of the structure of the code 
 
-database - Code related to database, models, beans and DAO's
-filter - Code related to web app filters, like logfilter, authorization filters etc.
-Mail - Code to send emails with templating.
-json - Code to convert to and fro of object and JSON objects.
-repository - MongoDB data repositories
-response  - Response objects
-service - Restful web services to serve data.
-utils - Utilities like data enctyption,  unique ID generation etc.
+Below are the packages in the existing project and their highlevel functionality
+
+* database - Code related to database, models, beans and DAO's
+* filter - Code related to web app filters, like logfilter, authorization filters etc.
+* Mail - Code to send emails with templating.
+* json - Code to convert to and fro of object and JSON objects.
+* repository - MongoDB data repositories
+* response  - Response objects
+* service - Restful web services to serve data.
+* utils - Utilities like data enctyption,  unique ID generation etc.
 
 ## How to run
 1. Import the project into IntelliJ Idea.
