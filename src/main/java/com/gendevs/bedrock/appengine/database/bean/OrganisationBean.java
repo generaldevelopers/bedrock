@@ -31,8 +31,8 @@ public class OrganisationBean {
 	public String id;
 	public String name;
 	public int status; //see OrganisationStatusType
-    @ApiModelProperty( value = "DBAName of the Organisation/ Unique", required = true )
-
+    	@ApiModelProperty( value = "DBAName of the Organisation/ Unique", required = true )
+	
 	public String DBAName;
 	public String icon;
     public String email;
