@@ -66,12 +66,9 @@ public class FailedLoginAttempt {
 	public boolean removeBlock(String username){
 		
 		FailedLoginAttempt  fla = RepositoryFactory.getInstance().getFailedLoginAttemptRepository().findByUsername(username);
-		
 		if(fla == null)
 			return false;
-		
 		RepositoryFactory.getInstance().getFailedLoginAttemptRepository().delete(fla);
-		
 		return true;
 	}
 
