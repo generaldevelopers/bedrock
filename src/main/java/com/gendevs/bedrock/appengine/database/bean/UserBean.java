@@ -30,27 +30,27 @@ import java.util.List;
 
 @XmlRootElement
 public class UserBean {
+		
+	public String id;    
+	@ApiModelProperty( value = "Username to login/ Unique", required = true )
+	public String username;    
+	@ApiModelProperty( value = "Password to login/ Unique", required = true )
+	public String password;
 	
-    public String id;    
-    @ApiModelProperty( value = "Username to login/ Unique", required = true )
-    public String username;    
-    @ApiModelProperty( value = "Password to login/ Unique", required = true )
-    public String password;
-    
-    public String organisationId;
-    public String firstName;
-    public String lastName;
-    public String email;
-    public String phone;
-    public String designation;
-    
-    public String subscription; //see SubscriptionType
-    
-    public String role;
-    
-    public String type;
-    public String validTill;
-    
+	public String organisationId;
+	public String firstName;
+	public String lastName;
+	public String email;
+	public String phone;
+	public String designation;
+	
+	public String subscription; //see SubscriptionType
+	
+	public String role;
+	
+	public String type;
+	public String validTill;
+	    
 	public boolean isDeleted;
 	public String imageUrl;
 	
@@ -90,7 +90,7 @@ public class UserBean {
 		}
 		return model;
 	}
-
+	
 	public static UserBean getBean(User model) {
 		
 		UserBean bean = new UserBean();
@@ -119,7 +119,7 @@ public class UserBean {
 	}
 	
 	public static List<UserBean> getBeans(List<User> model) {
-
+	
 		List<UserBean> beans = new ArrayList<UserBean>();
 		for (User data : model) {
 			beans.add(getBean(data));
