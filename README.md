@@ -47,4 +47,10 @@ Below are the packages in the existing project and their highlevel functionality
 4. Run the project. 
 5. Open in browser for default port 8888.
 
+## Team
+* Joshua D - Developer
+* Kishore J - Developer
+* Vinodh G - Developer
+* Deepak B - Project lead/Developer
+* 
 Full documentation is found at http://generaldevelopers.github.io/bedrock
