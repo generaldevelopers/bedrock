@@ -33,6 +33,7 @@ public class RepositoryFactory {
 		}
 		return context;
 	}
+	
 	public static RepositoryFactory getInstance(){
 		if (instance == null){
 			instance = new RepositoryFactory();
@@ -59,6 +60,4 @@ public class RepositoryFactory {
 	public Mailer getMailer() {
 		return (Mailer) getContext().getBean(Mailer.class);
 	}
-	
-
 }
