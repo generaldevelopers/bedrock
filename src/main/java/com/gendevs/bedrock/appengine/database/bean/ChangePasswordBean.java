@@ -24,13 +24,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 public class ChangePasswordBean {
-    @ApiModelProperty( value = "new password", required = true )
-
+	@ApiModelProperty( value = "new password", required = true )
 	public String newPassword;
-    @ApiModelProperty( value = "old password", required = true )
-
+	@ApiModelProperty( value = "old password", required = true )
 	public String oldPassword;
-    @ApiModelProperty( value = "username", required = true )
-
+	@ApiModelProperty( value = "username", required = true )
 	public String username;
 }
