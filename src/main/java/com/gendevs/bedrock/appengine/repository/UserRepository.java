@@ -27,9 +27,8 @@ public interface UserRepository extends CrudRepository<User, String> {
 	User findByUsername(String username);
 	User findByIdAndIsDeleted(String id, boolean state);
 	User findByUsernameAndPassword(String username, String password);
-	List<User> findByOrganisationIdAndIsDeleted(String organisationId, boolean state);
-
-	List<User> findByisDeleted(boolean status);
-	
 	User findByUsernameAndOrganisationIdAndIsDeleted(String username, String organisationId, boolean state);
+	
+	List<User> findByOrganisationIdAndIsDeleted(String organisationId, boolean state);
+	List<User> findByisDeleted(boolean status);
 }
