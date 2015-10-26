@@ -20,7 +20,7 @@
 
     <section class="main-content">
       <h2>
-<a id="bedrock-appengine" class="anchor" href="#bedrock-appengine" aria-hidden="true"><span class="octicon octicon-link"></span></a>bedrock-appengine</h2>
+<a id="bedrock" class="anchor" href="#bedrock" aria-hidden="true"><span class="octicon octicon-link"></span></a>Bedrock</h2>
 
 <p>Core foundational server framework customized for backend systems</p>
 
@@ -30,13 +30,51 @@
 
 <p>Another parallel Google Appengine's version of web application is available in our repository. It is strongly coupled with Appengine's cloud services</p>
 
-<p>This repository uses below libraries</p>
+<h2>
+<a id="this-repository-uses-below-libraries" class="anchor" href="#this-repository-uses-below-libraries" aria-hidden="true"><span class="octicon octicon-link"></span></a>This repository uses below libraries</h2>
 
 <ul>
 <li>Apache commons fraemwork - For basic file operations</li>
 <li>Joda time - For time based calculations</li>
 <li>Java Mail - For sending emails</li>
+<li>Apache Velocity - For templating the emails</li>
+<li>Junit - for unit and integration testing</li>
+<li>Spring framework - for Core spring features</li>
+<li>Spring Mongo Data framework - for Mongodb DB writes.</li>
+<li>Spring Data - for ORM on mongo DB and repositories.</li>
+<li>Mongo DB driver - Driver for mongo DB database. </li>
+<li>Jersey - for Restful web services endpoints.</li>
+<li>Google's Gson - for object to Json and viceversa conversion.</li>
+<li>Java Servlet - for containerization of web service requests</li>
+<li>Swagger - for web services documentation</li>
+<li>Amazon AWS Java SDK - for uploading images to S3</li>
+<li>Test NG - For tests framework</li>
 </ul>
+
+<h2>
+<a id="explanation-of-the-structure-of-the-code" class="anchor" href="#explanation-of-the-structure-of-the-code" aria-hidden="true"><span class="octicon octicon-link"></span></a>Explanation of the structure of the code</h2>
+
+<p>database - Code related to database, models, beans and DAO's
+filter - Code related to web app filters, like logfilter, authorization filters etc.
+Mail - Code to send emails with templating.
+json - Code to convert to and fro of object and JSON objects.
+repository - MongoDB data repositories
+response  - Response objects
+service - Restful web services to serve data.
+utils - Utilities like data enctyption,  unique ID generation etc.</p>
+
+<h2>
+<a id="how-to-run" class="anchor" href="#how-to-run" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to run</h2>
+
+<ol>
+<li>Import the project into IntelliJ Idea.</li>
+<li>Let the maven files be downloaded</li>
+<li>Create a run configuration with tomcat as server</li>
+<li>Run the project. </li>
+<li>Open in browser for default port 8888.</li>
+</ol>
+
+<p>Full documentation is found at <a href="http://generaldevelopers.github.io/bedrock">http://generaldevelopers.github.io/bedrock</a></p>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/generaldevelopers/bedrock">Bedrock</a> is maintained by <a href="https://github.com/generaldevelopers">generaldevelopers</a>.</span>
