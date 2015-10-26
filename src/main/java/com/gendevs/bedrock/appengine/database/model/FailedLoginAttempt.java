@@ -38,7 +38,7 @@ public class FailedLoginAttempt {
 		if(fla == null)
 			return false;
 		long curtime = new Date().getTime();
-		System.out.println("time left: "+(AppConstants.BLOCK_TIME_MILLIS - (curtime - fla.timeEntered.getTime()))/1000);
+		//System.out.println("time left: "+(AppConstants.BLOCK_TIME_MILLIS - (curtime - fla.timeEntered.getTime()))/1000);
 		if( curtime - fla.timeEntered.getTime() < AppConstants.BLOCK_TIME_MILLIS
 				&& fla.numberOfTimes >= AppConstants.MAX_FAIL_ATTEMPTS){
 			return true;
