@@ -49,7 +49,7 @@
 		<servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
 		<init-param>
 			<param-name>com.sun.jersey.config.property.packages</param-name>
-			<param-value>com.gendevs.bedrock.appengine.service;com.wordnik.swagger.jersey.listing</param-value>
+			<param-value>com.gendevs.bedrock.service;com.wordnik.swagger.jersey.listing</param-value>
 		</init-param>
 		<init-param>
 			<param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
@@ -66,7 +66,7 @@
 	<!-- ErrorHandler servlet -->
 	<servlet>
 	    <servlet-name>ErrorHandler</servlet-name>
-	    <servlet-class>com.gendevs.bedrock.appengine.filter.ErrorHandler</servlet-class>
+	    <servlet-class>com.gendevs.bedrock.filter.ErrorHandler</servlet-class>
 	</servlet>
 	<!-- ErrorHandler -->
 	<servlet-mapping>
@@ -114,7 +114,7 @@
 
 	<filter>
 		<filter-name>AuthFilter</filter-name>
-		<filter-class>com.gendevs.bedrock.appengine.filter.AuthFilter</filter-class>
+		<filter-class>com.gendevs.bedrock.filter.AuthFilter</filter-class>
 		<init-param>
 			<param-name>logType</param-name>
 			<param-value>special</param-value>
@@ -131,7 +131,7 @@
 
 	<filter>
 		<filter-name>LogFilter</filter-name>
-		<filter-class>com.gendevs.bedrock.appengine.filter.LogFilter</filter-class>
+		<filter-class>com.gendevs.bedrock.filter.LogFilter</filter-class>
 		<init-param>
 			<param-name>logType</param-name>
 			<param-value>special</param-value>
@@ -145,14 +145,4 @@
 		<filter-name>LogFilter</filter-name>
 		<servlet-name>Jersey Web Application</servlet-name>
 	</filter-mapping>
-
-	<filter>
-		<filter-name>ObjectifyFilter</filter-name>
-		<filter-class>com.googlecode.objectify.ObjectifyFilter</filter-class>
-	</filter>
-	<filter-mapping>
-		<filter-name>ObjectifyFilter</filter-name>
-		<url-pattern>/*</url-pattern>
-	</filter-mapping>
-
 </web-app>

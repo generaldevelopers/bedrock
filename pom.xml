@@ -17,7 +17,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.gendevs.bedrock.appengine</groupId>
+	<groupId>com.gendevs.bedrock</groupId>
 	<artifactId>bedrock-core</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.2-SNAPSHOT</version>
@@ -51,12 +51,6 @@
 			<artifactId>jira-client</artifactId>
 			<version>0.5</version>
 			<scope>compile</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>com.googlecode.objectify</groupId>
-			<artifactId>objectify</artifactId>
-			<version>5.1.4</version>
 		</dependency>
 
 		<dependency>
