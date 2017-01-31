@@ -18,12 +18,13 @@ package com.gendevs.bedrock.repository;
 
 import java.util.List;
 
+import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 import com.gendevs.bedrock.database.model.Organisation;
 
 @Repository
-public interface OrganisationRepository extends CrudRepository<Organisation, String> {
+public interface OrganisationRepository extends MongoRepository<Organisation, String> {
 
 	Organisation findByIdAndIsDeleted(String id, boolean state);
 	List<Organisation> findByStatusAndIsDeleted(int status, boolean state);

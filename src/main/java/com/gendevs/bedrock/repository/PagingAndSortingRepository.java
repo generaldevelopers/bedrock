@@ -12,7 +12,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
+ 
 
 package com.gendevs.bedrock.repository;
 
@@ -27,7 +27,7 @@ public interface PagingAndSortingRepository<T, ID extends Serializable> extends 
 	Page<T> findAll(Pageable pageable);
 }
 
-/*
+
 Accessing the second page of User by a page size of 20 you could simply do something like this:
 
 PagingAndSortingRepository<User, Long> repository = // get access to a bean
@@ -39,4 +39,5 @@ Page<User> users = repository.findAll(new PageRequest(1, 20));
 		page = this.service.getEmployeeRepository().findAll(new PageRequest(0, 3,sort));
 		// Fetch the employees from the page object
 		this.employees = page.getContent();
+
 */

@@ -25,25 +25,30 @@
           http://www.springframework.org/schema/beans
           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 	
-	<mongo:mongo id="mongoDbConn" host="127.0.0.1" port="27017" />
-
-	<mongo:db-factory id="mongoDbFactory"
-                  host="127.0.0.1"
-                  port="27017"
-                  username="username"
-                  password="password"
-                  dbname="mydbname"
-                  mongo-ref="mongoDbConn" />
+	<mongo:mongo host="127.0.0.1" port="27017" >
+		<mongo:options connections-per-host="8"
+	                   threads-allowed-to-block-for-connection-multiplier="4"
+	                   connect-timeout="1000"
+	                   max-wait-time="1500"
+	                   auto-connect-retry="true"
+	                   socket-keep-alive="true"
+	                   socket-timeout="1500"
+	                   slave-ok="true"
+	                   write-number="1"
+	                   write-timeout="0"
+	                   write-fsync="true"/>
+	</mongo:mongo>
+	
+	<mongo:db-factory id="mongoDbFactory" dbname="bedrock-mongo" mongo-ref="mongo" />
 
 	<context:annotation-config />
-
-	<mongo:repositories base-package="com.gendevs.bedrock.appengine.repository" />
 
 	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
 		<constructor-arg name="mongoDbFactory" ref="mongoDbFactory" />
 	</bean>
-
-
+	
+	<mongo:repositories base-package="com.gendevs.bedrock.repository" mongo-template-ref="mongoTemplate"/>
+	
 	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
 		<property name="host" value="smtp.gmail.com" />
 		<property name="port" value="587" />
@@ -60,7 +65,7 @@
 		</property>
 	</bean>
 
-	<bean id="mailer" class="com.gendevs.bedrock.appengine.integration.mail.Mailer">
+	<bean id="mailer" class="com.gendevs.bedrock.integration.mail.Mailer">
 		<property name="mailSender" ref="mailSender" />
 		<property name="velocityEngine" ref="velocityEngine" />
 	</bean>

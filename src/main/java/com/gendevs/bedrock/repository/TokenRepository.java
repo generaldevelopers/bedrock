@@ -19,12 +19,13 @@ package com.gendevs.bedrock.repository;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 import com.gendevs.bedrock.database.model.Token;
 
 @Repository
-public interface TokenRepository extends CrudRepository<Token, String> {
+public interface TokenRepository extends MongoRepository<Token, String> {
 
 	Token findByToken(String token);
 	Token findByUserId(String userId);

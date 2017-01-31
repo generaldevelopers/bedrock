@@ -16,13 +16,14 @@
 
 package com.gendevs.bedrock.repository;
 
+import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 import com.gendevs.bedrock.database.model.FailedLoginAttempt;
 
 @Repository
-public interface FailedLoginAttemptRepository extends CrudRepository<FailedLoginAttempt, String> {
+public interface FailedLoginAttemptRepository extends MongoRepository<FailedLoginAttempt, String> {
 
 	FailedLoginAttempt findByUsername(String username);
-	
+
 }

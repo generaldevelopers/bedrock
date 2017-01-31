@@ -18,12 +18,13 @@ package com.gendevs.bedrock.repository;
 
 import java.util.List;
 
+import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 import com.gendevs.bedrock.database.model.User;
 
 @Repository
-public interface UserRepository extends CrudRepository<User, String> {
+public interface UserRepository extends MongoRepository<User, String> {
 
 	User findByUsername(String username);
 	User findByIdAndIsDeleted(String id, boolean state);
